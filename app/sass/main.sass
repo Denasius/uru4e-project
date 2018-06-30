@@ -1,0 +1,205 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.overlay
+		background-color: $overlay-color
+
+.img 
+	min-width: 100%
+
+img
+	width: 100%
+
+h1,h2,h3,h4,h5,h6,p 
+	margin: 0
+	padding: 0
+a 
+	outline: none
+	text-decoration: none
+
+/*---------HEADER----------*/
+
+header
+	width: 100%
+	height: 700px
+	.nav-section
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		&-top 
+			background-color: $header-color
+			display: flex
+			justify-content: space-around
+			align-items: center
+			.title
+				position: relative
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: center
+				.h1
+					color: $accent
+					text-transform: uppercase
+					font-family: $header-font
+				p 
+					color: $white
+					font-family: $header-font
+					text-transform: uppercase
+				&:after
+					content: ''
+					position: absolute
+					top: 0
+					right: -50%
+					bottom: 0
+					width: 1px
+					background-color: rgba($white, .4)
+			.time-work
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: flex-start
+				text-transform: uppercase
+				font-family: $header-font
+				color: $white
+			.navigation
+				text-transform: uppercase
+				font-family: $header-font
+				.main-nav
+					a 
+						margin-right: em(20px)
+						color: $white
+						text-decoration: none
+						transition: 0.5s
+						position: relative
+						&:hover
+							color: $accent
+							&:after
+								opacity: 1
+						&:after
+							content: ''
+							position: absolute
+							bottom: -50%
+							left: 0
+							width: 100%
+							height: 2px
+							background-color: $accent
+							opacity: 0
+							transition: 0.5s
+						&:last-child
+							margin: 0
+			.social_icons
+				display: flex
+				justify-content: space-between
+				align-items: center
+				&>div 
+					padding-left: em(20px)
+					a
+						.fa 
+							color: $white
+							transition: 0.5s
+							&:hover
+								color: $accent
+					&:first-child
+						padding: 0
+		&-bottom 
+			background-color: rgba($header-color, .6)
+			display: flex
+			flex-direction: space-between
+			justify-content: center
+			align-items: center
+			padding: em(10px) 0
+			.bottom-nav
+				margin-right: em(100px)
+				a 
+					margin-right: em(50px)
+					text-transform: uppercase
+					font-family: $header-font
+					color: $white
+					font-size: em(13px)
+					text-decoration: none
+					transition: 0.5s
+					&:hover
+						color: $accent-2
+			.call
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: center
+				&-number
+					display: flex
+					justify-content: center
+					align-items: center
+					i, p 
+						color: $white
+						font-size: em(13px)
+					p 
+						font-family: $header-font
+						margin-left: em(10px)
+				&-btn 
+					&-order
+						border: none
+						color: $white
+						background-color: $accent
+						font-size: em(13px)
+						font-family: $header-font
+						text-transform: uppercase
+						padding: em(5px) em(25px)
+						border-radius: 10px
+						cursor: pointer
+						outline: none
+	.slider-image
+		transition: 0.5s
+
+.prev, .next
+	display: inline-block
+	position: absolute
+	top: 50%
+	text-align: center
+	cursor: pointer
+	padding: em(10px) em(15px)
+	transition: 0.3s
+	&:hover
+		background-color: rgba($accent-2, .7)
+.next
+	right: 0
+
+
+
+@import "media" // Always at the end
