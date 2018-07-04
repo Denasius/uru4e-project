@@ -1,4 +1,4 @@
-var slideIndex = 1,
+let slideIndex = 1,
 	slides = document.getElementsByClassName('slider-image'),
 	prev = document.querySelector('.prev'),
 	next = document.querySelector('.next');
@@ -12,7 +12,7 @@ function showSlides(n){
 		slideIndex = slides.length;
 	}
 
-	for (var i = 0; i < slides.length; i++){
+	for (let i = 0; i < slides.length; i++){
 		slides[i].style.display = 'none';
 	}
 

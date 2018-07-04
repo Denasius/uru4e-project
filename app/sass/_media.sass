@@ -5,15 +5,265 @@
 
 // ≥1200px
 +media-breakpoint-down(lg)
+	header .nav-section-top .title::after
+		right: -10%
+
+	.s-sales
+		&-background 
+			&-description
+				p 
+					font-size: em(120px)
+
 
 // ≥992px
 +media-breakpoint-down(md)
+	.s-catalog .position .flowers-title .h2
+		font-size: em(14px)
+
+	.s-catalog .position .flowers-btn-order
+		padding-left: em(30px)
+		padding-right: em(30px)
+
+	header 
+		font-size: em(13px)
+		.nav-section-top 
+			.navigation
+				.main-nav 
+					display: flex
+					justify-content: flex-end
+	.s-main 
+		margin-top: 0
+
+	.s-tulips-discount-title
+		font-size: em(55px)
+	.s-tulips-discount-sale
+		font-size: em(35px)
 
 // ≥768px
 +media-breakpoint-down(sm)
+	.s-catalog .position .flowers-title .h2
+		font-size: em(16px)
+	.s-catalog .position .flowers-btn-order
+		padding-left: em(65px)
+		padding-right: em(65px)
+
+	header 
+		.nav-section-top 
+			.navigation 
+				.main-nav 
+					a 
+						margin-right: em(10px)
+						&:first-child
+							margin-left: em(10px)
+			.time-work
+				display: none
+
+	.slider-section
+		.prev, .next
+			top: 30% !important
+			.arrow-right, .arrow-left
+				img 
+					width: 60%
+
+	.s-main 
+		margin-top: 0
+		&-image 
+			display: none
+
+	.s-tulips-discount-p
+		width: 100%
+		text-align: center
+
+	.s-tulips-discount-title
+		font-size: em(45px)
+	.s-tulips-discount-sale
+		font-size: em(25px)
+
+	.section-image .btn-arrow.btn-next img, .section-image .btn-arrow.btn-prev img 
+		width: 50%
+	.section-image .btn-arrow.btn-next, .section-image .btn-arrow.btn-prev
+		text-align: center
+		padding: em(8px)
 
 // ≥576px
 +media-breakpoint-down(xs)
+	section 
+		margin-top: em(40px)
+
+	header
+		height: em(400px)
+		.link
+			display: block
+			position: absolute
+			top: em(10px)
+			left: em(20px)
+			text-align: center
+			.menu-btn
+				display: block
+				width: 30px
+				height: 30px
+				background-color: #ffffff
+				border-radius: 50%
+				position: relative
+				outline: none
+				box-shadow: 1px 1px 3px #000
+				transition: 0.5s
+				span 
+					position: absolute
+					top: 50%
+					margin-top: em(-1px)
+					left: 50%
+					margin-left: em(-10px)
+					width: em(20px)
+					height: 2px
+					background-color: $accent
+					&:before 
+						content: ''
+						position: absolute
+						top: 50%
+						margin-top: em(-1px)
+						left: 50%
+						margin-left: em(-10px)
+						width: em(20px)
+						height: 2px
+						background-color: $accent
+						transform: translateY(-5px)
+						transition: 0.3s
+					&:after
+						content: ''
+						position: absolute
+						top: 50%
+						margin-top: em(-1px)
+						left: 50%
+						margin-left: em(-10px)
+						width: em(20px)
+						height: 2px
+						background-color: $accent
+						transform: translateY(3px)
+						transition: 0.3s
+				&.menu-btn-active
+					position: fixed
+					transition: 0.5s
+					z-index: 100
+					span 
+						height: 0
+						&:before 
+							transform: rotate(45deg)
+						&:after
+							transform: rotate(-45deg)
+		.adaptive-menu
+			display: block
+			position: fixed
+			width: 80%
+			height: 100vh
+			transform: translateX(-200%)
+			transition: 0.5s
+			background-color: rgba($header-postext, .9)
+			&.adaptive-menu-active
+				transform: translateX(0%)
+				z-index: 90
+			.logo 
+				.title
+					position: relative
+					display: flex
+					justify-content: center
+					align-items: center
+					margin-top: em(40px)
+					.h1
+						color: $accent
+						text-transform: uppercase
+						font-family: $header-font
+						margin-right: em(10px)
+					p 
+						color: $white
+						font-family: $header-font
+						text-transform: uppercase
+						font-size: em(10px)
+			.nav-div-main
+				display: flex
+				justify-content: center
+				align-items: center
+				flex-direction: column
+				text-transform: uppercase
+				font-family: $header-font
+				margin-bottom: em(20px)
+				a 
+					color: $white
+					text-decoration: none
+					outline: none
+					padding: em(15px) 0
+					font-size: em(12px)
+					&:hover 
+						color: $accent
+			.adaptive-social
+				width: 100%
+				display: flex
+				justify-content: flex-end
+				align-items: center
+				margin-bottom: em(20px)
+				&>div 
+					padding-left: em(20px)
+					a
+						.fa 
+							color: $white
+							transition: 0.5s
+							&:hover
+								color: $accent
+					&:first-child
+						padding: 0
+			.call
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: center
+				&-number
+					display: flex
+					justify-content: center
+					align-items: center
+					i, p 
+						color: $white
+						font-size: em(13px)
+					p 
+						font-family: $header-font
+						margin-left: em(10px)
+				&-btn 
+					&-order
+						border: none
+						color: $white
+						background-color: $accent
+						font-size: em(13px)
+						font-family: $header-font
+						text-transform: uppercase
+						padding: em(5px) em(25px)
+						border-radius: 10px
+						cursor: pointer
+						outline: none
+		.nav-section
+			display: none
+
+
+	.s-main-title 
+		text-align: center
+		p
+			font-size: em(18px)
+
+	.s-main .head .head-title
+		font-size: em(14px)
+
+	.s-tulips-discount-title
+		font-size: em(35px)
+	.s-tulips-discount-sale
+		font-size: em(15px)
+	.s-catalog-title
+		font-size: em(18px)
+
+	.s-catalog .position .flowers-btn-order
+		padding-left: em(30px)
+		padding-right: em(30px)
+
+	.s-catalog .position .flowers-title .h2
+		font-size: em(12px)
+
 
 
 /*==========  Mobile First  ==========*/

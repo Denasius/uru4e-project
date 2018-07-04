@@ -2,15 +2,35 @@ $default-font: "Mate", sans-serif
 $section-font: "MontserattSemiBold", sans-serif
 $banner-font: "MontserattExtraBold", sans-serif
 $header-font: "MontserattRegular", sans-serif
-$accent: #9c2415
+$description-font: "SourceSansProRegular", sans-serif
+$accent: #f44336
 $accent-2: #ffc107
-$section-text: #777987
+$section-text-color: #5f727f
 $header-color: #282e3f
 $overlay-color: #4e566c
 $header-slider-text: #ffc07c
 $white: #ffffff
 $black: #000000
 $header-postext: #5f727f
+$section-title-text: #2c2e3d
+$section-description-text: #99a9b5
+
+%catalog-title
+	font-family: $section-font
+	font-size: em(24px)
+	color: $section-title-text
+	text-transform: uppercase
+
+%catalog-shot-description
+	font-family: $description-font
+	color: $section-description-text
+	font-size: em(13px)
+	margin-bottom: em(70px)
+
+%flex-position
+	display: flex
+	justify-content: center
+	align-items: center
 
 $base-size: 16px
 @function em ($px, $base: $base-size)
