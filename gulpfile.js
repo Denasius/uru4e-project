@@ -10,6 +10,9 @@ var gulp          = require('gulp'),
 		rename        = require('gulp-rename'),
 		autoprefixer  = require('gulp-autoprefixer'),
 		notify        = require("gulp-notify"),
+		cache          = require('gulp-cache'),
+		del            = require('del'),
+		imagemin       = require('gulp-imagemin'),
 		rsync         = require('gulp-rsync');
 
 gulp.task('browser-sync', function() {
@@ -34,10 +37,11 @@ gulp.task('styles', function() {
 	.pipe(browserSync.stream())
 });
 
-gulp.task('js', function() {
+gulp.task('js', ['js-slider'], function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/libs/slick-carousel/slick/slick.min.js',
+		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
 		'app/js/common.js' // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
@@ -45,6 +49,16 @@ gulp.task('js', function() {
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({ stream: true }))
 });
+
+gulp.task('js-slider', function() {
+	return gulp.src([
+		'app/js/slider.js'
+		])
+	.pipe(concat('slider.min.js'))
+	// .pipe(uglify()) // Mifify js (opt.)
+	.pipe(gulp.dest('app/js'))
+});
+
 
 gulp.task('rsync', function() {
 	return gulp.src('app/**')
@@ -66,5 +80,37 @@ gulp.task('watch', ['styles', 'js', 'browser-sync'], function() {
 	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
 	gulp.watch('app/*.html', browserSync.reload)
 });
+
+gulp.task('imagemin', function() {
+	return gulp.src('app/img/**/*')
+	.pipe(cache(imagemin())) // Cache Images
+	.pipe(gulp.dest('dist/img')); 
+});
+
+gulp.task('build', ['removedist', 'imagemin', 'styles', 'js'], function() {
+
+	var buildFiles = gulp.src([
+		'app/*.html',
+		'app/.htaccess',
+		]).pipe(gulp.dest('dist'));
+
+	var buildCss = gulp.src([
+		'app/css/main.min.css',
+		'app/libs/fontawesome/font-awesome.css'
+		]).pipe(gulp.dest('dist/css'));
+
+	var buildJs = gulp.src([
+		'app/js/scripts.min.js',
+		'app/js/slider.min.js',
+		]).pipe(gulp.dest('dist/js'));
+
+	var buildFonts = gulp.src([
+		'app/fonts/**/*',
+		]).pipe(gulp.dest('dist/fonts'));
+
+});
+
+gulp.task('removedist', function() { return del.sync('dist'); });
+gulp.task('clearcache', function () { return cache.clearAll(); });
 
 gulp.task('default', ['watch']);

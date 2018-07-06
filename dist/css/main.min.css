@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("../libs/fontawesome/font-awesome.css");
 .s-catalog-title {
   font-family: "MontserattSemiBold", sans-serif;
   font-size: em(24px);
@@ -2869,18 +2868,16 @@ img.mfp-img {
     padding-left: 6px;
     padding-right: 6px; } }
 
+/*;
+@import url("../libs/fontawesome/font-awesome.css") */
 ::-webkit-input-placeholder {
   color: #666; }
-
 ::-moz-placeholder {
   color: #666; }
-
 :-ms-input-placeholder {
   color: #666; }
-
 ::-ms-input-placeholder {
   color: #666; }
-
 ::placeholder {
   color: #666; }
 

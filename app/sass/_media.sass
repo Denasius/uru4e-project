@@ -32,12 +32,30 @@
 					display: flex
 					justify-content: flex-end
 	.s-main 
-		margin-top: 0
+		margin-top: em(150px)
 
 	.s-tulips-discount-title
 		font-size: em(55px)
 	.s-tulips-discount-sale
 		font-size: em(35px)
+
+	footer 
+		.f-info 
+			flex-direction: column
+			align-items: flex-start
+			& > div 
+				margin-bottom: 20px
+		.f-bottom 
+			.flex-bottom
+				flex-direction: column
+				align-items: flex-start
+				& > div 
+					margin-bottom: 20px
+				.f-menu
+					.f-nav
+						a 
+							&:first-child
+								padding-left: 0
 
 // ≥768px
 +media-breakpoint-down(sm)
@@ -66,7 +84,7 @@
 					width: 60%
 
 	.s-main 
-		margin-top: 0
+		margin-top: em(150px)
 		&-image 
 			display: none
 
@@ -85,8 +103,25 @@
 		text-align: center
 		padding: em(8px)
 
+	.window_modal_order
+		width: em(310px)
+		height: em(200px)
+		.el_order
+			padding: 5px
+			.p_modal_order
+				font-size: em(10px)
+			form
+				input, button 
+					margin: 5px 0
+					padding: 5px
+					font-size: em(10px)
+					text-transform: lowercase
+
 // ≥576px
 +media-breakpoint-down(xs)
+	.f-info-logo
+		display: none
+
 	section 
 		margin-top: em(40px)
 
@@ -242,10 +277,12 @@
 			display: none
 
 
-	.s-main-title 
-		text-align: center
-		p
-			font-size: em(18px)
+	.s-main 
+		margin-top: 0
+		.s-main-title 
+			text-align: center
+			p
+				font-size: em(18px)
 
 	.s-main .head .head-title
 		font-size: em(14px)
@@ -264,13 +301,15 @@
 	.s-catalog .position .flowers-title .h2
 		font-size: em(12px)
 
+	.f-bottom .flex-bottom .f-menu
+		display: none
 
 
 /*==========  Mobile First  ==========*/
 
 // ≤576px
 +media-breakpoint-up(sm)
-
+	
 // ≤768px
 +media-breakpoint-up(md)
 
